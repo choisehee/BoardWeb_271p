@@ -91,7 +91,8 @@ public class BoardDAO {
 					stmt.setInt(3, vo.getSeq());
 					stmt.executeUpdate();
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.out.println("글수정 예외");
+//					e.printStackTrace();
 				} finally {
 					JDBCUtil.close(rs, stmt, conn);
 				}

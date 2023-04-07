@@ -15,7 +15,7 @@ public static Connection getConnection() {
 			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
 		} catch (Exception e) {
 			System.out.println("JDBCUtil¿¹¿Ü");
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		
 		return null;
