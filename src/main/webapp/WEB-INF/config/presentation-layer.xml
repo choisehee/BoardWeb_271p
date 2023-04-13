@@ -56,7 +56,36 @@
 		as Spring beans. By default, the Spring-provided @Component, @Repository, 
 		@Service, @Controller, @RestController, @ControllerAdvice, and @Configuration 
 		stereotypes will be detected, 클래스를 스캔한다 -->
-	<context:component-scan base-package="com.springbook.view"></context:component-scan>
 
+	<!-- 파일 업로드 설정 id는 multipartResolver로 반드시, 용량 지정하지 않으면 무제한으로 안됨 -->
+	<!-- MultipartFile 객체는 클라이언트가 업로드한 파일에 대한 모든 정보가 저장됨, 따라서 이 MultipartFile 
+		객체만 있으면 원하는 위치에 해당파일을 업로드 할 수 있다 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000" />
+	</bean>
+
+	<!-- 예외 처리 설정 -->
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArithmeticException">
+					common/arithmeticError.jsp
+				</prop>
+				<prop key="java.lang.NullPointerException">
+					common/nullPointerError.jsp
+				</prop>
+			</props>
+		</property>
+		<property name="defaultErrorView" value="common/error.jsp" />
+	</bean>
+
+	<!-- 스프링에서는 @ControllerAdvice 와 @ExceptionHandler 어노테이션을 이요하여 컨트롤의 메소드 수행 
+		중 발생하는 예외를 일관적으로 처리할 수 있다 그걸 위한 설정 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	<context:component-scan
+		base-package="com.springbook.view"></context:component-scan>
 
 </beans>

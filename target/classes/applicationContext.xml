@@ -126,7 +126,7 @@
 		<property name="driverClassName" value="${jdbc.driver}"></property>
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="username" value="${jdbc.username}"></property>
-		<property name="password" value="${jbdc.password}"></property>
+		<property name="password" value="${jdbc.password}"></property>
 	</bean>
 
 	<!-- SPRING JDBC 설정 -->
@@ -136,7 +136,7 @@
 		SQL queries or updates, initiating iteration over ResultSets and catching 
 		JDBC exceptions and translating them to the generic, more informative exception 
 		hierarchy defined in the org.springframework.dao package. -->
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
@@ -150,6 +150,8 @@
 		제공한다. 이 공통 기능 중에서 가장 대표적인 것이 예외 처리와 트랜잭션 처리다. 비지니스 메소드가 실행되다가 예외가 발생하면 해당 
 		메소드에 대한 트랜잭션을 롤백하고 문제없이 정상으로 수행 종료되면 트랜잭션을 커밋하면 된다. 트랜잭션을 커밋 롤백하기 위핸 객체는 
 		DataTransactionManager로 등록했다. 이 트랜잭션 관리자를 이용하여 트랜잭셔능ㄹ 제어하는 어드바이스를 등록하면 됨 -->
+
+
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
@@ -176,6 +178,8 @@
 
 	<context:component-scan
 		base-package="com.springbook.biz" />
+
+
 
 
 
