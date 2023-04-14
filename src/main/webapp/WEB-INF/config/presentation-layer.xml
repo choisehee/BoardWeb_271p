@@ -81,9 +81,38 @@
 		<property name="defaultErrorView" value="common/error.jsp" />
 	</bean>
 
+	<!-- 다국어 설정 -->
+	<!-- MessageSource 등록 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message.messageSource</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- LocaleResolver 등록 -->
+	<!-- 스프링에서는 다양한 LocaleResolver를 지원하지만 세션으로 부터 Locale 정보를 추출하고 유지하는 SessionLocaleResolver를 
+		가장 많이 사용 -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	</bean>
+
+	<!-- LocaleChangeInterceptor 등록 -->
+	<!-- 특정 언어로 화면을 보다가 해당 화면의 언어를 변경하고자 할 때  LocaleChangeInterceptor 사용
+		HandlerInterceptor를 구현한 클래스로서 스프링 설정 파일에 인터셉터로 등록해야 함
+	-->
+	<mvc:interceptors>
+		<bean
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" /><!-- 클라이언트로 부터 "lang"이라는 파라미터로 특정 Locale이 전송되며 해당 Locale로 변경 -->
+		</bean>
+	</mvc:interceptors>
+
 	<!-- 스프링에서는 @ControllerAdvice 와 @ExceptionHandler 어노테이션을 이요하여 컨트롤의 메소드 수행 
 		중 발생하는 예외를 일관적으로 처리할 수 있다 그걸 위한 설정 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven></mvc:annotation-driven><!-- HttpMessageConverter(html이 아닌 Json이나 xml로 변환) 를 구현하는 거 처리-->
 
 	<context:component-scan
 		base-package="com.springbook.view"></context:component-scan>
