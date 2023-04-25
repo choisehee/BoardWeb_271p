@@ -13,13 +13,13 @@ import com.springbook.biz.board.BoardVO;
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
 	
-	@Autowired
-	private BoardDAOSpring boardDAO;
+//	@Autowired
+//	private BoardDAOSpring boardDAO;
 //	private LogAdvide log;
 	
 	
-	
-	
+	@Autowired
+	private BoardDAOMybatis boardDAO;
 	
 	
 //	public BoardServiceImpl() {

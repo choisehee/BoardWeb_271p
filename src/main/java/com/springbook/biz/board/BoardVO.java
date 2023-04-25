@@ -34,6 +34,7 @@ public class BoardVO {
 	private MultipartFile uploadFile; //파일 업로드와 관련되 변수 추가
 	
 	
+	
 //	@JsonIgnore //json으로 나오지 않도록 제외 getter위에 설정
 	public MultipartFile getUploadFile() {
 		return uploadFile;

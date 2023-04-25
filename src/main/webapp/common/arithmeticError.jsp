@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>기본 에러 화면</title>
+<title>기본 에러 화면 arithmeticError</title>
 </head>
 <body bgcolor="#ffffff" text="#000000">
 	<!-- 타이틀 시작 -->

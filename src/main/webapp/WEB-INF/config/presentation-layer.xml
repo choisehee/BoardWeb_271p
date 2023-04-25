@@ -60,10 +60,12 @@
 	<!-- 파일 업로드 설정 id는 multipartResolver로 반드시, 용량 지정하지 않으면 무제한으로 안됨 -->
 	<!-- MultipartFile 객체는 클라이언트가 업로드한 파일에 대한 모든 정보가 저장됨, 따라서 이 MultipartFile 
 		객체만 있으면 원하는 위치에 해당파일을 업로드 할 수 있다 -->
+		
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000" />
+		<property name="maxUploadSize" value="10000000" />
 	</bean>
+
 
 	<!-- 예외 처리 설정 -->
 	<bean id="exceptionResolver"
@@ -100,19 +102,20 @@
 	</bean>
 
 	<!-- LocaleChangeInterceptor 등록 -->
-	<!-- 특정 언어로 화면을 보다가 해당 화면의 언어를 변경하고자 할 때  LocaleChangeInterceptor 사용
-		HandlerInterceptor를 구현한 클래스로서 스프링 설정 파일에 인터셉터로 등록해야 함
-	-->
+	<!-- 특정 언어로 화면을 보다가 해당 화면의 언어를 변경하고자 할 때 LocaleChangeInterceptor 사용 HandlerInterceptor를 
+		구현한 클래스로서 스프링 설정 파일에 인터셉터로 등록해야 함 -->
 	<mvc:interceptors>
 		<bean
 			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-			<property name="paramName" value="lang" /><!-- 클라이언트로 부터 "lang"이라는 파라미터로 특정 Locale이 전송되며 해당 Locale로 변경 -->
+			<property name="paramName" value="lang" /><!-- 클라이언트로 부터 "lang"이라는 
+				파라미터로 특정 Locale이 전송되며 해당 Locale로 변경 -->
 		</bean>
 	</mvc:interceptors>
 
 	<!-- 스프링에서는 @ControllerAdvice 와 @ExceptionHandler 어노테이션을 이요하여 컨트롤의 메소드 수행 
 		중 발생하는 예외를 일관적으로 처리할 수 있다 그걸 위한 설정 -->
-	<mvc:annotation-driven></mvc:annotation-driven><!-- HttpMessageConverter(html이 아닌 Json이나 xml로 변환) 를 구현하는 거 처리-->
+	<mvc:annotation-driven></mvc:annotation-driven><!-- HttpMessageConverter(html이 
+		아닌 Json이나 xml로 변환) 를 구현하는 거 처리 -->
 
 	<context:component-scan
 		base-package="com.springbook.view"></context:component-scan>

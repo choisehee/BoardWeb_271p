@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.8.8</version>
+			<version>1.9.6</version>
 		</dependency>
 
 		<!-- weaving : 조인포인트(어드바이스가 적용될 위치)에 실행할 코드인 어드바이스를 끼워넣는 과정 -->
@@ -57,6 +57,12 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 
 
 		<!-- Logging -->
@@ -185,7 +191,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.7.2</version>
 		</dependency>
-		
+
 		<!-- 자바11에서 객체를 xml형채의 데이터로 변환 -->
 		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 		<dependency>
@@ -194,24 +200,32 @@
 			<version>2.3.0</version>
 		</dependency>
 
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+		<!-- Mybatis Spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
 
 		<!-- 아래는 필요없어 -->
 		<!-- https://mvnrepository.com/artifact/org.jvnet.jaxb2_commons/jaxb2-basics-runtime -->
 		<!-- 자바객체 xml -->
-		<!-- <dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics-runtime</artifactId>
-			<version>0.11.1</version>
-		</dependency>-->
+		<!-- <dependency> <groupId>org.jvnet.jaxb2_commons</groupId> <artifactId>jaxb2-basics-runtime</artifactId> 
+			<version>0.11.1</version> </dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.jvnet.jaxb2_commons/jaxb2-basics-annotate -->
-		<!-- <dependency>
-			<groupId>org.jvnet.jaxb2_commons</groupId>
-			<artifactId>jaxb2-basics-annotate</artifactId>
-			<version>1.1.0</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.jvnet.jaxb2_commons</groupId> <artifactId>jaxb2-basics-annotate</artifactId> 
+			<version>1.1.0</version> </dependency> -->
 
-		
+
 
 
 
