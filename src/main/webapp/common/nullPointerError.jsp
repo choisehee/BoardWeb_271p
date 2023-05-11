@@ -10,7 +10,7 @@
 	<!-- 타이틀 시작 -->
 	<table width="100%" border="1" cellspacing="0" cellpadding="0">
 		<tr>
-			<td align="center" bgcolor="orange"><b>기본 에러 화면입니다.</b></td>
+			<td align="center" bgcolor="#6A24FE" color="#fff"><b>기본 에러 화면입니다.</b></td>
 		</tr>
 	</table>
 	<br>
